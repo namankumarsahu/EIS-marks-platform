@@ -1,0 +1,47 @@
+[
+  {
+    "admission_no": "EIS-1009",
+    "subject": "English",
+    "marks": 81
+  },
+  {
+    "admission_no": "EIS-1040",
+    "subject": "Science",
+    "marks": 92
+  },
+  {
+    "admission_no": "EIS-1034",
+    "subject": "Social Science",
+    "marks": 62
+  },
+  {
+    "admission_no": "EIS-1045",
+    "subject": "Hindi",
+    "marks": 57
+  },
+  {
+    "admission_no": "EIS-1029",
+    "subject": "English",
+    "marks": 51
+  },
+  {
+    "admission_no": "EIS-1006",
+    "subject": "English",
+    "marks": 72
+  },
+  {
+    "admission_no": "EIS-1007",
+    "subject": "Maths",
+    "marks": 105
+  },
+  {
+    "admission_no": "EIS-1099",
+    "subject": "English",
+    "marks": 70
+  },
+  {
+    "admission_no": "EIS-1011",
+    "subject": "Sanskrit",
+    "marks": 55
+  }
+]

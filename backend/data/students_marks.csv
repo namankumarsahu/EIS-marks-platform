@@ -1,0 +1,254 @@
+admission_no,student_name,class,section,date_of_birth,subject,marks_obtained,max_marks
+EIS-1034,  Lakshita Joshi ,6,B,27-11-2014,Social Science,,100
+EIS-1035,mohit soni,6,A,24-11-2014,Social Science,45,100
+EIS-1045,  Sunil Burdak ,6,A,21-Dec-14,Hindi,54,100
+EIS-1002,  Sanjana Verma ,6,B,19-10-2014,Social Science,55,100
+EIS-1012,Diya Joshi,6,B,13-Feb-14,Maths,87,100
+EIS-1004,Tanish Gupta,6,B,14-Aug-14,Science,88,100
+EIS-1019,Yash Choudhary,6,A,21-Mar-14,Hindi,76,100
+EIS-1003,Krishan Yadav,6,A,23-04-2014,Social Science,72,100
+EIS-1035,Mohit Soni,6,A,24-11-2014,Hindi,58,100
+EIS-1030,bhavya sharma,6,B,15-10-2014,English,58,100
+EIS-1035,Mohit Soni,6,A,24-Nov-14,English,61,100
+EIS-1027,KARTIK beniwal,6,A,23-09-2014,Science,61,100
+EIS-1031,Ekta Verma,6,A,25-May-14,Science,55,100
+EIS-1026,RAHUL SIHAG,6,B,18-11-2014,Social Science,55,100
+EIS-1027,kartik beniwal,6,A,23-09-2014,Hindi,50,100
+EIS-1017,Tara Rathore,6,A,27-02-2014,Hindi,59,100
+EIS-1016,ISHA purohit,6,B,24-Oct-14,English,71,100
+EIS-1012,Diya Joshi,6,B,13-Feb-14,Hindi,81,100
+EIS-1004,Tanish Gupta,6,B,14-08-2014,English,89,100
+EIS-1001,Ananya Sharma,6,A,20-02-2014,English,63,100
+EIS-1036,Nikhil Sharma,6,B,16-07-2014,Social Science,81,100
+EIS-1034,Lakshita Joshi,6,B,27-11-2014,Science,85,100
+EIS-1025,nitin mahala,6,A,15-08-2014,Social Science,81,100
+EIS-1019,Yash Choudhary,6,A,21-Mar-14,Hindi,76,100
+EIS-1019,YASH CHOUDHARY,6,A,21-Mar-14,Social Science,75,100
+EIS-1011,kavya singh,6,A,18-01-2014,Social Science,66,100
+EIS-1032,Juhi Gupta,6,B,18-Jul-14,Social Science,59,100
+EIS-1026,RAHUL SIHAG,6,B,18-Nov-14,English,59,100
+EIS-1001,ananya sharma,6,A,20-02-2014,Social Science,58,100
+EIS-1020,ravi bijarnia,6,B,21-01-2014,Science,71,100
+EIS-1009,Aditya Gupta,6,A,22-07-2014,English,95,100
+EIS-1029,Harsh Bhaskar,6,A,14-12-2014,English,55,100
+EIS-1037,payal saini,6,A,18-07-2014,English,90,100
+EIS-1027,KARTIK BENIWAL,6,A,23-09-2014,Social Science,60,100
+EIS-1005,chandini saini,6,A,23-03-2014,Social Science,94,100
+EIS-1033,Kirti Singh,6,A,25-05-2014,Social Science,84,100
+EIS-1011,KAVYA SINGH,6,A,18-01-2014,Hindi,70,100
+EIS-1021,Suresh Kulhari,6,A,16-Dec-14,Maths,58,100
+EIS-1035,MOHIT soni,6,A,24-11-2014,Maths,44,100
+EIS-1005,Chandini Saini,6,A,23-Mar-14,Maths,82,100
+EIS-1022,mahesh burdak,6,B,18-06-2014,English,83,100
+EIS-1002,  Sanjana Verma ,6,B,19-10-2014,Maths,58,100
+EIS-1044,Deepika Kulhari,6,B,16-02-2014,Science,64,100
+EIS-1003,Krishan Yadav,6,A,23-Apr-14,Maths,55,100
+EIS-1016,ISHA purohit,6,B,24-10-2014,Social Science,80,100
+EIS-1008,  Arjun Sharma ,6,B,26-05-2014,English,65,100
+EIS-1010,Rohit Verma,6,B,19-11-2014,English,85,100
+EIS-1024,Vikas Godara,6,B,28-08-2014,Hindi,76,100
+EIS-1010,Rohit Verma,6,B,19-11-2014,Maths,73,100
+EIS-1028,Parth Poonia,6,B,19-Dec-14,Maths,58,100
+EIS-1010,ROHIT VERMA,6,B,19-11-2014,Social Science,73,100
+EIS-1026,Rahul Sihag,6,B,18-Nov-14,Maths,40,100
+EIS-1032,JUHI GUPTA,6,B,18-Jul-14,English,50,100
+EIS-1012,Diya Joshi,6,B,13-02-2014,English,89,100
+EIS-1023,Deepak Dhaka,6,A,24-06-2014,English,98,100
+EIS-1031,Ekta Verma,6,A,25-05-2014,Hindi,77,100
+EIS-1004,  Tanish Gupta ,6,B,14-08-2014,Hindi,100,100
+EIS-1015,Neha Saini,6,A,19-01-2014,Maths,45,100
+EIS-1034,LAKSHITA JOSHI,6,B,27-Nov-14,Maths,87,100
+EIS-1045,Sunil Burdak,6,A,21-12-2014,English,47,100
+EIS-1025,Nitin Mahala,6,A,15-08-2014,English,72,100
+EIS-1009,Aditya Gupta,6,A,22-Jul-14,Science,100,100
+EIS-1042,Om Bijarnia,6,B,19-09-2014,Science,42,100
+EIS-1012,diya joshi,6,B,13-02-2014,Science,78,100
+EIS-1015,Neha Saini,6,A,19-01-2014,English,60,100
+EIS-1028,Parth Poonia,6,B,19-12-2014,Social Science,61,100
+EIS-1046,Rekha Dhaka,6,B,13-Sep-14,Science,62,100
+EIS-1036,Nikhil Sharma,6,B,16-07-2014,English,86,100
+EIS-1001,Ananya Sharma,6,A,20-02-2014,Science,48,100
+EIS-1024,Vikas Godara,6,B,28-Aug-14,Social Science,70,100
+EIS-1040,Aarav Joshi,6,B,23-10-2014,Social Science,95,100
+EIS-1038,Ritu Purohit,6,B,22-12-2014,Hindi,78,100
+EIS-1029,harsh bhaskar,6,A,14-Dec-14,Hindi,49,100
+EIS-1014,POOJA YADAV,6,B,26-May-14,Hindi,64,100
+EIS-1008,  Arjun Sharma ,6,B,26-May-14,Hindi,71,100
+EIS-1031,Ekta Verma,6,A,25-05-2014,English,60,100
+EIS-1033,Kirti Singh,6,A,25-05-2014,Maths,88,100
+EIS-1027,Kartik Beniwal,6,A,23-09-2014,English,64,100
+EIS-1043,Kirti Beniwal,6,A,21-Jun-14,Hindi,,100
+EIS-1013,riya soni,6,A,26-Mar-14,English,,100
+EIS-1002,Sanjana Verma,6,B,19-Oct-14,Hindi,68,100
+EIS-1041,MIRA CHOUDHARY,6,A,28-May-14,English,84,100
+EIS-1010,Rohit Verma,6,B,19-11-2014,Hindi,79,100
+EIS-1040,AARAV JOSHI,6,B,23-10-2014,Hindi,100,100
+EIS-1015,Neha Saini,6,A,19-01-2014,Social Science,56,100
+EIS-1039,Seema Rathore,6,A,20-05-2014,Maths,52,100
+EIS-1011,  Kavya Singh ,6,A,18-Jan-14,Science,68,100
+EIS-1009,Aditya Gupta,6,A,22-07-2014,Hindi,97,100
+EIS-1022,Mahesh Burdak,6,B,18-06-2014,Hindi,82,100
+EIS-1028,PARTH POONIA,6,B,19-12-2014,Science,46,100
+EIS-1037,payal saini,6,A,18-07-2014,Science,80,100
+EIS-1024,Vikas Godara,6,B,28-Aug-14,Science,71,100
+EIS-1023,Deepak Dhaka,6,A,24-06-2014,Hindi,84,100
+EIS-1001,Ananya Sharma,6,A,20-02-2014,Hindi,64,100
+EIS-1030,BHAVYA sharma,6,B,15-Oct-14,Social Science,47,100
+EIS-1036,Nikhil Sharma,6,B,16-07-2014,Science,83,100
+EIS-1047,Vimla Godara,6,A,23-07-2014,Social Science,82,100
+EIS-1033,Kirti Singh,6,A,25-05-2014,Social Science,84,100
+EIS-1037,PAYAL SAINI,6,A,18-Jul-14,Social Science,79,100
+EIS-1034,Lakshita Joshi,6,B,27-Nov-14,Maths,87,100
+EIS-1040,Aarav Joshi,6,B,23-10-2014,English,100,100
+EIS-1018,Dev Shekhawat,6,B,24-Jun-14,English,84,100
+EIS-1045,Sunil Burdak,6,A,21-12-2014,Science,49,100
+EIS-1046,rekha dhaka,6,B,13-09-2014,English,68,100
+EIS-1036,Nikhil Sharma,6,B,16-07-2014,Maths,72,100
+EIS-1016,ISHA purohit,6,B,24-10-2014,Hindi,81,100
+EIS-1022,MAHESH BURDAK,6,B,18-06-2014,Maths,72,100
+EIS-1008,Arjun Sharma,6,B,26-May-14,Maths,65,100
+EIS-1023,deepak dhaka,6,A,24-06-2014,Social Science,79,100
+EIS-1014,POOJA YADAV,6,B,26-05-2014,Social Science,82,100
+EIS-1027,Kartik Beniwal,6,A,23-09-2014,Maths,39,100
+EIS-1021,  Suresh Kulhari ,6,A,16-12-2014,English,65,100
+EIS-1043,Kirti Beniwal,6,A,21-06-2014,Social Science,77,100
+EIS-1012,Diya Joshi,6,B,13-02-2014,Science,78,100
+EIS-1007,Vivaan Pandey,6,A,16-Oct-14,Social Science,70,100
+EIS-1039,SEEMA rathore,6,A,20-May-14,Social Science,61,100
+EIS-1043,KIRTI beniwal,6,A,21-Jun-14,Science,81,100
+EIS-1040,Aarav Joshi,6,B,23-10-2014,Science,84,100
+EIS-1013,Riya Soni,6,A,26-03-2014,Social Science,64,100
+EIS-1019,Yash Choudhary,6,A,21-03-2014,English,89,100
+EIS-1045,SUNIL burdak,6,A,21-12-2014,English,47,100
+EIS-1038,Ritu Purohit,6,B,22-Dec-14,Science,70,100
+EIS-1038,  Ritu Purohit ,6,B,22-Dec-14,English,73,100
+EIS-1022,Mahesh Burdak,6,B,18-Jun-14,Social Science,80,100
+EIS-1025,NITIN MAHALA,6,A,15-08-2014,Maths,60,100
+EIS-1030,Bhavya Sharma,6,B,15-10-2014,Science,48,100
+EIS-1003,  Krishan Yadav ,6,A,23-04-2014,Science,61,100
+EIS-1022,Mahesh Burdak,6,B,18-Jun-14,Science,80,100
+EIS-1020,RAVI bijarnia,6,B,21-01-2014,Maths,78,100
+EIS-1024,Vikas Godara,6,B,28-08-2014,Maths,75,100
+EIS-1006,  Pankaj Tanwar ,6,B,17-Sep-14,Social Science,69,100
+EIS-1007,Vivaan Pandey,6,A,16-Oct-14,Science,53,100
+EIS-1042,OM bijarnia,6,B,19-Sep-14,Maths,35,100
+EIS-1028,Parth Poonia,6,B,19-Dec-14,English,64,100
+EIS-1031,  Ekta Verma ,6,A,25-May-14,Social Science,72,100
+EIS-1038,RITU purohit,6,B,22-12-2014,Social Science,77,100
+EIS-1028,Parth Poonia,6,B,19-12-2014,Hindi,63,100
+EIS-1016,Isha Purohit,6,B,24-10-2014,Maths,73,100
+EIS-1043,Kirti Beniwal,6,A,21-Jun-14,English,76,100
+EIS-1031,Ekta Verma,6,A,25-05-2014,Maths,50,100
+EIS-1008,Arjun Sharma,6,B,26-05-2014,Social Science,77,100
+EIS-1044,Deepika Kulhari,6,B,16-02-2014,Hindi,71,100
+EIS-1025,Nitin Mahala,6,A,15-08-2014,Science,76,100
+EIS-1047,Vimla Godara,6,A,23-07-2014,Science,66,100
+EIS-1039,SEEMA RATHORE,6,A,20-05-2014,Hindi,73,100
+EIS-1014,Pooja Yadav,6,B,26-05-2014,Maths,62,100
+EIS-1024,Vikas Godara,6,B,28-Aug-14,English,71,100
+EIS-1029,harsh bhaskar,6,A,14-Dec-14,Maths,52,100
+EIS-1018,Dev Shekhawat,6,B,24-06-2014,Maths,71,100
+EIS-1003,  Krishan Yadav ,6,A,23-Apr-14,Hindi,65,100
+EIS-1037,Payal Saini,6,A,18-07-2014,English,90,100
+EIS-1029,Harsh Bhaskar,6,A,14-Dec-14,Social Science,51,100
+EIS-1032,Juhi Gupta,6,B,18-Jul-14,Science,,100
+EIS-1008,Arjun Sharma,6,B,26-May-14,Science,72,100
+EIS-1014,  Pooja Yadav ,6,B,26-May-14,Hindi,78,100
+EIS-1006,pankaj tanwar,6,B,17-Sep-14,Hindi,66,100
+EIS-1033,Kirti Singh,6,A,25-05-2014,Science,94,100
+EIS-1034,Lakshita Joshi,6,B,27-11-2014,English,87,100
+EIS-1022,mahesh burdak,6,B,18-06-2014,Hindi,82,100
+EIS-1013,Riya Soni,6,A,26-03-2014,Maths,,100
+EIS-1001,  Ananya Sharma ,6,A,20-02-2014,Maths,42,100
+EIS-1009,Aditya Gupta,6,A,22-07-2014,Social Science,92,100
+EIS-1007,Vivaan Pandey,6,A,16-10-2014,Maths,54,100
+EIS-1046,Rekha Dhaka,6,B,13-09-2014,Hindi,70,100
+EIS-1014,pooja yadav,6,B,26-05-2014,English,83,100
+EIS-1037,PAYAL SAINI,6,A,18-Jul-14,Maths,76,100
+EIS-1035,Mohit Soni,6,A,24-11-2014,Science,48,100
+EIS-1003,Krishan Yadav,6,A,23-04-2014,Science,61,100
+EIS-1006,Pankaj Tanwar,6,B,17-09-2014,Maths,50,100
+EIS-1032,Juhi Gupta,6,B,18-07-2014,Hindi,61,100
+EIS-1021,Suresh Kulhari,6,A,16-12-2014,Science,66,100
+EIS-1036,Nikhil Sharma,6,B,16-07-2014,Hindi,81,100
+EIS-1020,RAVI BIJARNIA,6,B,21-Jan-14,Hindi,86,100
+EIS-1044,DEEPIKA kulhari,6,B,16-02-2014,Maths,60,100
+EIS-1041,Mira Choudhary,6,A,28-05-2014,Science,89,100
+EIS-1039,Seema Rathore,6,A,20-05-2014,Science,54,100
+EIS-1037,  Payal Saini ,6,A,18-Jul-14,Social Science,79,100
+EIS-1042,Om Bijarnia,6,B,19-09-2014,Social Science,41,100
+EIS-1020,Ravi Bijarnia,6,B,21-01-2014,Social Science,79,100
+EIS-1042,Om Bijarnia,6,B,19-Sep-14,English,56,100
+EIS-1047,VIMLA godara,6,A,23-Jul-14,Hindi,71,100
+EIS-1014,Pooja Yadav,6,B,26-May-14,Science,67,100
+EIS-1029,HARSH BHASKAR,6,A,14-Dec-14,Science,46,100
+EIS-1011,Kavya Singh,6,A,18-01-2014,Maths,56,100
+EIS-1020,RAVI bijarnia,6,B,21-01-2014,English,75,100
+EIS-1021,suresh kulhari,6,A,16-12-2014,Social Science,76,100
+EIS-1018,Dev Shekhawat,6,B,24-Jun-14,Social Science,77,100
+EIS-1017,tara rathore,6,A,27-02-2014,Maths,55,100
+EIS-1021,Suresh Kulhari,6,A,16-12-2014,Hindi,,100
+EIS-1035,mohit soni,6,A,24-11-2014,Social Science,45,100
+EIS-1019,Yash Choudhary,6,A,21-03-2014,Science,82,100
+EIS-1034,LAKSHITA JOSHI,6,B,27-11-2014,Hindi,88,100
+EIS-1047,vimla godara,6,A,23-07-2014,Maths,66,100
+EIS-1026,Rahul Sihag,6,B,18-11-2014,Hindi,47,100
+EIS-1030,BHAVYA sharma,6,B,15-10-2014,Maths,37,100
+EIS-1018,DEV SHEKHAWAT,6,B,24-Jun-14,Science,85,100
+EIS-1032,Juhi Gupta,6,B,18-07-2014,Maths,,100
+EIS-1005,Chandini Saini,6,A,23-03-2014,English,90,100
+EIS-1040,AARAV joshi,6,B,23-10-2014,Maths,92,100
+EIS-1003,Krishan Yadav,6,A,23-04-2014,English,71,100
+EIS-1033,Kirti Singh,6,A,25-05-2014,English,100,100
+EIS-1018,Dev Shekhawat,6,B,24-06-2014,Hindi,,100
+EIS-1004,tanish gupta,6,B,14-Aug-14,Social Science,87,100
+EIS-1026,rahul sihag,6,B,18-Nov-14,Science,44,100
+EIS-1021,suresh kulhari,6,A,16-12-2014,Social Science,76,100
+EIS-1006,Pankaj Tanwar,6,B,17-09-2014,English,69,100
+EIS-1011,Kavya Singh,6,A,18-Jan-14,English,67,100
+EIS-1017,TARA RATHORE,6,A,27-02-2014,English,63,100
+EIS-1009,Aditya Gupta,6,A,22-Jul-14,Maths,93,100
+EIS-1044,Deepika Kulhari,6,B,16-02-2014,Social Science,62,100
+EIS-1005,  Chandini Saini ,6,A,23-03-2014,Science,95,100
+EIS-1041,MIRA CHOUDHARY,6,A,28-05-2014,Hindi,86,100
+EIS-1033,  Kirti Singh ,6,A,25-May-14,Hindi,92,100
+EIS-1002,Sanjana Verma,6,B,19-Oct-14,Science,63,100
+EIS-1016,  Isha Purohit ,6,B,24-10-2014,Science,80,100
+EIS-1014,POOJA yadav,6,B,26-05-2014,English,83,100
+EIS-1007,VIVAAN PANDEY,6,A,16-10-2014,Hindi,60,100
+EIS-1039,Seema Rathore,6,A,20-05-2014,English,72,100
+EIS-1038,Ritu Purohit,6,B,22-12-2014,Maths,75,100
+EIS-1017,tara rathore,6,A,27-02-2014,Maths,55,100
+EIS-1015,NEHA SAINI,6,A,19-01-2014,Science,55,100
+EIS-1004,tanish gupta,6,B,14-08-2014,Maths,83,100
+EIS-1037,Payal Saini,6,A,18-Jul-14,Hindi,94,100
+EIS-1030,Bhavya Sharma,6,B,15-10-2014,Hindi,48,100
+EIS-1043,Kirti Beniwal,6,A,21-06-2014,Maths,74,100
+EIS-1020,RAVI BIJARNIA,6,B,21-Jan-14,Hindi,86,100
+EIS-1011,KAVYA SINGH,6,A,18-01-2014,Social Science,66,100
+EIS-1013,  Riya Soni ,6,A,26-03-2014,Hindi,54,100
+EIS-1041,  Mira Choudhary ,6,A,28-May-14,Social Science,73,100
+EIS-1019,Yash Choudhary,6,A,21-03-2014,Maths,79,100
+EIS-1023,Deepak Dhaka,6,A,24-Jun-14,Maths,76,100
+EIS-1017,TARA rathore,6,A,27-Feb-14,Science,47,100
+EIS-1015,Neha Saini,6,A,19-01-2014,Hindi,54,100
+EIS-1044,deepika kulhari,6,B,16-Feb-14,English,75,100
+EIS-1025,NITIN MAHALA,6,A,15-Aug-14,Hindi,72,100
+EIS-1046,Rekha Dhaka,6,B,13-09-2014,Maths,54,100
+EIS-1046,Rekha Dhaka,6,B,13-09-2014,Social Science,59,100
+EIS-1047,VIMLA godara,6,A,23-07-2014,English,87,100
+EIS-1006,Pankaj Tanwar,6,B,17-Sep-14,Science,,100
+EIS-1013,Riya Soni,6,A,26-03-2014,Science,65,100
+EIS-1046,  Rekha Dhaka ,6,B,13-09-2014,English,68,100
+EIS-1042,Om Bijarnia,6,B,19-Sep-14,Hindi,54,100
+EIS-1002,SANJANA verma,6,B,19-Oct-14,English,64,100
+EIS-1023,DEEPAK dhaka,6,A,24-06-2014,Science,76,100
+EIS-1045,sunil burdak,6,A,21-12-2014,Maths,51,100
+EIS-1013,Riya Soni,6,A,26-03-2014,Social Science,64,100
+EIS-1012,Diya Joshi,6,B,13-02-2014,Social Science,92,100
+EIS-1005,Chandini Saini,6,A,23-Mar-14,Hindi,90,100
+EIS-1045,sunil burdak,6,A,21-12-2014,Social Science,46,100
+EIS-1017,Tara Rathore,6,A,27-02-2014,Social Science,66,100
+EIS-1010,ROHIT VERMA,6,B,19-Nov-14,Science,71,100
+EIS-1007,Vivaan Pandey,6,A,16-Oct-14,English,67,100
+EIS-1041,Mira Choudhary,6,A,28-05-2014,Maths,73,100
