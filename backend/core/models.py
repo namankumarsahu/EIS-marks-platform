@@ -6,6 +6,7 @@ class Student(models.Model):
     the school ERP, so it's kept unique and is what the API and the
     corrections endpoint key off (rather than the internal numeric id).
     """
+    
 
     admission_no = models.CharField(max_length=20, unique=True, db_index=True)
     name = models.CharField(max_length=200)

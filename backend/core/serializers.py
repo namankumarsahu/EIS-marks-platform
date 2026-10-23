@@ -47,10 +47,10 @@ class StudentDetailSerializer(serializers.ModelSerializer):
             "average",
         ]
 
-    def _mark_values(self, obj):
+    def _mark_values(self, obj): 
         return [m.marks_obtained for m in obj.marks.all()]
 
-    def get_marks(self, obj):
+    def get_marks(self, obj): 
         return [
             {
                 "subject": m.subject.name,
