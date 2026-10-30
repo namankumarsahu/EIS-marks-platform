@@ -1,88 +1,118 @@
+# Stage 1: Build React frontend
+FROM node:22-alpine AS frontend-builder
 
-# ---------- Stage 1: build the React (Vite) frontend ----------
-FROM node:20-alpine AS frontend
 WORKDIR /build
-COPY frontend/package.json frontend/package-lock.json ./
+
+COPY frontend/package*.json ./
 RUN npm ci
+
 COPY frontend/ ./
 RUN npm run build
 
-# ---------- Stage 2: nginx (port 3000) + Django/gunicorn, non-root ----------
+
+# Stage 2: Production runtime
 FROM nginxinc/nginx-unprivileged:alpine
+
 USER root
 
-RUN apk add --no-cache python3 py3-pip bash
-
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
+# Install Python runtime and dependencies
+RUN apk add --no-cache python3 py3-pip \
+    && mkdir -p /app/backend /usr/share/nginx/html \
+    && pip3 install --break-system-packages --no-cache-dir \
+       Django==6.0.7 \
+       djangorestframework==3.17.1 \
+       django-cors-headers==4.9.0 \
+       gunicorn
 
 WORKDIR /app/backend
-COPY backend/requirements.txt ./
-RUN pip install --no-cache-dir --break-system-packages -r requirements.txt gunicorn==23.0.0
 
-# Only what the API needs (no tests/scripts)
+# Copy only required Django application files
 COPY backend/manage.py ./
-COPY backend/config ./config
-COPY backend/core ./core
-COPY backend/data ./data
+COPY backend/requirements.txt ./
+COPY backend/config/ ./config/
+COPY backend/core/__init__.py ./core/
+COPY backend/core/apps.py ./core/
+COPY backend/core/admin.py ./core/
+COPY backend/core/models.py ./core/
+COPY backend/core/serializers.py ./core/
+COPY backend/core/services.py ./core/
+COPY backend/core/views.py ./core/
+COPY backend/core/urls.py ./core/
+COPY backend/core/migrations/ ./core/migrations/
+COPY backend/data/students_marks.csv ./data/students_marks.csv
 
-# nginx: serve the React build, proxy /api and /admin to gunicorn (only conf.d/default.conf is replaced)
+# Apply production Django settings without embedding secrets
+RUN sed -i "s/^SECRET_KEY = .*/SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')/" config/settings.py \
+    && sed -i 's/^DEBUG = True$/DEBUG = False/' config/settings.py
+
+# Copy compiled frontend
+COPY --from=frontend-builder --chown=101:101 /build/dist/ /usr/share/nginx/html/
+
+# Configure Nginx
 RUN printf '%s\n' \
-  'server {' \
-  '  listen 3000;' \
-  '  server_name _;' \
-  '  server_tokens off;' \
-  '  root /usr/share/nginx/html;' \
-  '  index index.html;' \
-  '  gzip on;' \
-  '  gzip_types text/css application/javascript application/json image/svg+xml;' \
-  '  location /api/ {' \
-  '    proxy_pass http://127.0.0.1:8000;' \
-  '    proxy_set_header Host $host;' \
-  '    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;' \
-  '    proxy_set_header X-Forwarded-Proto $scheme;' \
-  '  }' \
-  '  location /admin/ {' \
-  '    proxy_pass http://127.0.0.1:8000;' \
-  '    proxy_set_header Host $host;' \
-  '  }' \
-  '  location /assets/ {' \
-  '    expires 7d;' \
-  '    add_header Cache-Control "public";' \
-  '    try_files $uri =404;' \
-  '  }' \
-  '  location / {' \
-  '    try_files $uri $uri/ /index.html;' \
-  '  }' \
-  '}' > /etc/nginx/conf.d/default.conf
+    'server {' \
+    '    listen 0.0.0.0:3000;' \
+    '    server_name _;' \
+    '    root /usr/share/nginx/html;' \
+    '    index index.html;' \
+    '    server_tokens off;' \
+    '    location /api/ {' \
+    '        proxy_pass http://127.0.0.1:8000;' \
+    '        proxy_set_header Host $host;' \
+    '        proxy_set_header X-Real-IP $remote_addr;' \
+    '        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;' \
+    '        proxy_set_header X-Forwarded-Proto $scheme;' \
+    '    }' \
+    '    location /admin/ {' \
+    '        proxy_pass http://127.0.0.1:8000;' \
+    '        proxy_set_header Host $host;' \
+    '    }' \
+    '    location / {' \
+    '        try_files $uri $uri/ /index.html;' \
+    '    }' \
+    '    location ~ /\. {' \
+    '        deny all;' \
+    '    }' \
+    '}' > /etc/nginx/conf.d/default.conf
 
-# Start script: gunicorn (127.0.0.1:8000) + nginx (0.0.0.0:3000); container exits if either dies
-RUN printf '%s\n' \
-  '#!/bin/bash' \
-  'cd /app/backend' \
-  'python3 -m gunicorn config.wsgi:application --bind 127.0.0.1:8000 --workers 2 --access-logfile - &' \
-  'nginx -g "daemon off;" &' \
-  'trap "kill \$(jobs -p) 2>/dev/null; exit 0" TERM INT' \
-  'wait -n' \
-  'exit $?' > /app/start.sh \
-  && chmod 755 /app/start.sh
+# Create startup script
+RUN cat > /usr/local/bin/entrypoint.sh <<'EOF' \
+#!/bin/sh
+set -e
 
-# Build-time: DEBUG off, create the SQLite DB, load the CSV, make everything writable by user 101
-RUN sed -i 's/^DEBUG = True/DEBUG = False/' config/settings.py \
- && python3 manage.py migrate --noinput \
- && python3 manage.py import_marks data/students_marks.csv \
- && chown -R 101:101 /app
+cd /app/backend
 
-COPY --from=frontend --chown=101:101 /build/dist/ /usr/share/nginx/html/
+# Generate a runtime-only Django secret
+export DJANGO_SECRET_KEY="$(python3 -c 'import secrets; print(secrets.token_urlsafe(50))')"
+
+# Initialize database and import initial student data on first startup
+if [ ! -f db.sqlite3 ]; then
+    python3 manage.py migrate --noinput
+    python3 manage.py import_marks data/students_marks.csv
+else
+    python3 manage.py migrate --noinput
+fi
+
+# Start Django application
+gunicorn config.wsgi:application \
+    --bind 127.0.0.1:8000 \
+    --workers 2 \
+    --timeout 60 &
+
+# Start Nginx in foreground
+exec nginx -g 'daemon off;'
+EOF
+RUN chmod 755 /usr/local/bin/entrypoint.sh \
+    && chown -R 101:101 /app
+
+# Runtime directories and SQLite database are writable by UID 101.
+# Nginx unprivileged image uses /tmp for PID and temporary files.
 
 USER 101
+
 EXPOSE 3000
 
-HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-  CMD wget -q -O /dev/null http://127.0.0.1:3000/ || exit 1
-
-CMD ["/app/start.sh"]
-
+CMD ["/usr/local/bin/entrypoint.sh"]
 # # syntax=docker/dockerfile:1
 
 # # ---------- Stage 1: build the React (Vite) frontend ----------
