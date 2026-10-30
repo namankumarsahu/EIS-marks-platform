@@ -1,4 +1,4 @@
-# Stage 1: Build React frontend
+# Stage 1: Build frontend
 FROM node:22-alpine AS frontend-builder
 
 WORKDIR /build
@@ -15,40 +15,45 @@ FROM nginxinc/nginx-unprivileged:alpine
 
 USER root
 
-# Install Python runtime and dependencies
+# Install Python and backend dependencies
 RUN apk add --no-cache python3 py3-pip \
-    && mkdir -p /app/backend /usr/share/nginx/html \
-    && pip3 install --break-system-packages --no-cache-dir \
-       Django==6.0.7 \
-       djangorestframework==3.17.1 \
-       django-cors-headers==4.9.0 \
-       gunicorn
+    && mkdir -p /app/backend/data \
+    && pip3 install --break-system-packages --no-cache-dir gunicorn
 
 WORKDIR /app/backend
 
-# Copy only required Django application files
-COPY backend/manage.py ./
-COPY backend/requirements.txt ./
-COPY backend/config/ ./config/
-COPY backend/core/__init__.py ./core/
-COPY backend/core/apps.py ./core/
-COPY backend/core/admin.py ./core/
-COPY backend/core/models.py ./core/
-COPY backend/core/serializers.py ./core/
-COPY backend/core/services.py ./core/
-COPY backend/core/views.py ./core/
-COPY backend/core/urls.py ./core/
-COPY backend/core/migrations/ ./core/migrations/
-COPY backend/data/students_marks.csv ./data/students_marks.csv
+COPY backend/requirements.txt ./requirements.txt
 
-# Apply production Django settings without embedding secrets
-RUN sed -i "s/^SECRET_KEY = .*/SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')/" config/settings.py \
+RUN pip3 install --break-system-packages --no-cache-dir \
+    -r requirements.txt
+
+# Django configuration
+COPY --chown=101:101 backend/manage.py ./
+COPY --chown=101:101 backend/config/ ./config/
+
+# Application files
+COPY --chown=101:101 backend/core/__init__.py ./core/
+COPY --chown=101:101 backend/core/apps.py ./core/
+COPY --chown=101:101 backend/core/admin.py ./core/
+COPY --chown=101:101 backend/core/models.py ./core/
+COPY --chown=101:101 backend/core/serializers.py ./core/
+COPY --chown=101:101 backend/core/services.py ./core/
+COPY --chown=101:101 backend/core/views.py ./core/
+COPY --chown=101:101 backend/core/urls.py ./core/
+COPY --chown=101:101 backend/core/migrations/ ./core/migrations/
+COPY --chown=101:101 backend/core/management/ ./core/management/
+
+# Required initial dataset
+COPY --chown=101:101 backend/data/students_marks.csv ./data/students_marks.csv
+
+# Production Django settings
+RUN sed -i "s|^SECRET_KEY = .*|SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'runtime-placeholder')|" config/settings.py \
     && sed -i 's/^DEBUG = True$/DEBUG = False/' config/settings.py
 
-# Copy compiled frontend
+# Frontend production build
 COPY --from=frontend-builder --chown=101:101 /build/dist/ /usr/share/nginx/html/
 
-# Configure Nginx
+# Nginx configuration
 RUN printf '%s\n' \
     'server {' \
     '    listen 0.0.0.0:3000;' \
@@ -75,17 +80,17 @@ RUN printf '%s\n' \
     '    }' \
     '}' > /etc/nginx/conf.d/default.conf
 
-# Create startup script
-RUN cat > /usr/local/bin/entrypoint.sh <<'EOF' \
+# Create entrypoint script
+RUN cat > /usr/local/bin/entrypoint.sh <<'EOF'
 #!/bin/sh
-set -e
+set -eu
 
 cd /app/backend
 
-# Generate a runtime-only Django secret
-export DJANGO_SECRET_KEY="$(python3 -c 'import secrets; print(secrets.token_urlsafe(50))')"
+# Generate secret at runtime, never during image build
+export DJANGO_SECRET_KEY="${DJANGO_SECRET_KEY:-$(python3 -c 'import secrets; print(secrets.token_urlsafe(50))')}"
 
-# Initialize database and import initial student data on first startup
+# Initialize database and import dataset on first startup
 if [ ! -f db.sqlite3 ]; then
     python3 manage.py migrate --noinput
     python3 manage.py import_marks data/students_marks.csv
@@ -93,21 +98,20 @@ else
     python3 manage.py migrate --noinput
 fi
 
-# Start Django application
+# Start Django backend
 gunicorn config.wsgi:application \
     --bind 127.0.0.1:8000 \
     --workers 2 \
     --timeout 60 &
 
-# Start Nginx in foreground
+# Start Nginx
 exec nginx -g 'daemon off;'
 EOF
+
 RUN chmod 755 /usr/local/bin/entrypoint.sh \
     && chown -R 101:101 /app
 
-# Runtime directories and SQLite database are writable by UID 101.
-# Nginx unprivileged image uses /tmp for PID and temporary files.
-
+# Non-root runtime
 USER 101
 
 EXPOSE 3000
